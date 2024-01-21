@@ -1,0 +1,719 @@
+html,
+body{
+width:100%;
+/* overflow-x:hidden; */
+}
+
+body{  
+    background:#fff;
+}
+.center{
+    max-width:1400px;
+    width:80%;
+    margin:0 auto;
+    position:relative;
+    /* background-color:aliceblue; */
+}
+/* .header{
+    width:100%;
+} */
+
+header{
+    /* min-width: 1920px; */
+    margin:0 auto;
+}
+.headTop{
+    /* width:1920px; */
+    height:45px;
+    border-bottom:1px solid #3d3d3d;
+    background-color:#151515;
+    position: relative;
+    
+}
+.headTop>.center>h2{
+    float:left;
+    padding:22px 0 0 0px;
+    color:rgb(132,132,132);
+    font-size:10px;
+}
+.gnb>ul{
+    float:right;
+    text-align: right;
+    
+    /* font-size:18px; */
+    
+    
+}
+.gnb>ul>li{
+    float:left;
+    display:block;
+    line-height: 45px;
+    margin:0 0 0 60px;
+    font-size:12px;
+    font-weight: 300;
+    letter-spacing:1px;
+}
+.online{
+    width:130px;
+    height:44.8px;
+    position: relative;
+    /* margin-right:60px; */
+}
+.online>.yellowbox{
+    position:absolute;
+    line-height: 30px;
+    left:0;
+    top:50%;
+    transform: translateY(-50%);
+    width:100%;
+    height:30px;
+    background-color:#ffe600;
+    padding-right:10px;
+}
+.online>.yellowbox>a{
+    color:#313131;
+    font-weight: bold;
+}
+.online>.yellowbox>a>img{
+    width:20px;
+    margin-bottom: 6px;
+}
+
+.gnb>ul>li:last-child>a{
+    font-weight: 600;
+}
+.gnb>ul>li:first-child>a,
+.gnb>ul>li:nth-child(2)>a,
+.gnb>ul>li:nth-child(3)>a{
+    position:relative;
+}
+.gnb>ul>li:nth-child(2){
+    margin-left:15px;
+}
+
+.gnb>ul>li:first-child>a>span{
+    width:18px;
+    height:18px;
+    background-image: url(../images/icon-search.png);
+    background-size: 100%;
+    position: absolute;
+    top:50%;
+    transform: translateY(-50%);
+    left:-27px;
+}
+.gnb>ul>li:nth-child(3)>a>span{
+    width:18px;
+    height:18px;
+    background-image: url(../images/icon-user.png);
+    background-size: 100%;
+    position: absolute;
+    top:50%;
+    transform: translateY(-50%);
+    left:-30px;
+}
+.search{
+    position:relative;
+}
+.searchpopup{
+    position: absolute;
+    left:-45px;
+    top:35px;
+    height:24px;
+    line-height: 40px;
+    background-color:#3d3d3d;
+    padding:0 2px 0 2px;
+    z-index: 1500;
+    opacity: 0;
+}
+.searchpopup>input{
+    width:140px;
+    height:20px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+.searchpopup>input:focus{
+    outline: none;
+}
+
+#sample{
+    width:90px;
+    height:30px;
+    box-sizing: border-box;
+    font-weight: 300;
+}
+
+.gnb a{
+    display:block;
+    /* padding-right:20px; */
+    color:white;
+}
+
+.gnb>ul>li>a>span{
+    display:block;
+    /* width:48px;
+    height:48px; */
+}
+.headBottom{
+    height:100px;
+    background-color:black;
+}
+.headBottom>.center{
+    position:relative;
+}
+.sbag{
+    position:absolute;
+    right:15px;
+    top:30px;
+}
+.logo{
+    width:60px;
+    padding-top:20px;
+    position: relative;
+
+}
+.logo>a>img{
+    width:100%;
+}
+.logo> span{
+    background-image:url(../images/icon-ham.png);
+    background-size:70%;
+    background-repeat: no-repeat;
+    width:50px;
+    height:50px;
+    position: absolute;
+    top:50%;
+    transform: translateY(-17%);
+    left:65px;
+}
+.logo> .active{
+    background-image:url(../images/icon-close.png);
+    background-size: 60%;
+    width:50px;
+    height:50px;
+    position: absolute;
+    top:50%;
+    transform: translateY(-17%);
+    left:65px;
+}
+
+
+
+#nav{
+    float:left;
+    margin-top:-40px;
+    font-size:14px;
+    z-index: 999px;
+    margin-left:130px;
+}
+#nav>li{
+    float:left;
+    margin-right:25px;
+    position:relative;
+}
+#nav>li>a{
+    color:#f3f3f3;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+.sub{
+    width:210px;
+    margin-top:0px;
+    background-color:rgb(0, 0, 0,0.8);
+    /* background-color:rgb(255, 0, 0,0.8); */
+    text-align: left;
+    text-indent: 20px;
+    position:absolute;
+    z-index: 100;
+    font-size:14px;
+    left:-20px;
+    display:none;
+    padding:70px 0 20px 0;
+    letter-spacing: 1px;
+}
+
+.sub>li>a:hover{
+    color:#ffe600;
+}
+
+#nav>li:hover .sub{
+    display:block;
+}
+#nav>li:hover>a{
+    color:#ffe600
+}
+.online2{
+    position: absolute;
+    right:20px;
+    top:30px;
+}
+.online2>li>a{
+    color:#313131;
+    margin-left:12px;
+    font-size:10px;
+    letter-spacing: 0em;
+    line-height: 30px;
+    font-weight: 600;
+}
+.on2{
+    width:125px;
+    height:30px;
+    background-color:#ffe600;
+    /* margin-right:60px; */
+}
+.on2>a>img{
+    width:20px;
+    margin-bottom: 5px;
+}
+.sub li{
+    line-height: 2.5;
+}
+.sub a{
+    color:#dedede;
+}
+
+/* 모바일 메뉴 */
+#Mnav{
+    position:absolute;
+    top:90px;
+    width:100%;
+    background-color:black;
+    z-index: 10000;
+    font-size:13px;
+    border-top:1px solid #333;
+    
+}
+
+#Mnav>li{
+    line-height: 70px;
+    border-bottom:1px solid #333;
+}
+
+#Mnav>li>a{
+    display:block;
+    text-indent:22px;
+    color:#f0f0f0;
+}
+.Msub{
+    background-color:#181818;
+    display:none;
+}
+.Msub>li>a{
+    display:block;
+    color:#ddd;
+    text-indent: 30px;
+    border-bottom:1px solid #333;
+}
+/* 로그인폼 */
+.bgcenter{
+    width:50%;
+    height:800px;
+    /* background-color:turquoise; */
+    margin:0 auto;
+}
+.Btext{
+    padding:60px 0 80px 10px;
+}
+.id{
+    margin-bottom:25px;
+}
+.id>input,
+.password>input{
+    display:block;
+    width:100%;
+    height:60px;
+    box-sizing: border-box;
+    background-color:#fff;
+    text-indent: 20px;
+    border:1px solid #ddd;
+    color:#ddd;
+}
+.password{
+    margin-bottom:25px;
+}
+.idSave{
+    margin:0 0 30px 0;
+    color:#151515;
+    font-weight: 400;
+}
+.idSave input[id="idsave"]{
+    width:20px;
+    height:20px;
+}
+.login{
+    width:100%;
+    height:60px;
+    background-color:#ddd;
+    text-align: center;
+    line-height: 60px;
+    margin-bottom:30px;
+}
+.sns{
+    width:50%;
+    margin:0 auto;
+    /* background:brown; */
+}
+.snsflex>ul{
+    display:flex;
+    justify-content: space-between;
+}
+.snsflex>ul>li{
+    width:20%;
+}
+.snsflex>ul>li>a{
+}
+.snsflex>ul>li>a>img{
+    width:100%;
+}
+.account{
+    margin-top:25px;
+    padding:18px 0 18px 0;
+    border-top:1px solid #ddd;
+    border-bottom:1px solid #ddd;
+    text-align: center;
+    color:#ddd;
+}
+.account>ul>li{
+    display: inline-block;
+    position:relative;
+    margin:0 20px 0 20px;
+}
+.account>ul>li::after{
+    display:block;
+    position:absolute;
+    content:"";
+    width:1px;
+    height:30px;
+    background-color:#ddd;
+    left:127%;
+    top:50%;
+    transform: translateY(-50%);
+}
+.account>ul>li:last-child::after{
+    display:none;
+}
+.nonmember{
+    margin:30px 0 30px 0;
+    width:100%;
+    height:60px;
+    text-align: center;
+    line-height: 60px;
+    background: #fff;
+    border:1px solid #000;
+    box-sizing: border-box;
+}
+
+/* footer */
+.footTop{
+    width:100%;
+    height:200px;
+    background-color:#ffe600;
+    position: relative;
+}
+.footTop>.FtextBox{
+    position:absolute;
+    top:50%;
+    transform: translateY(-50%);
+    left:50px;
+    /* width:1000px; */
+    height:120px;
+    /* background:turquoise; */
+    line-height: 60px;
+}
+.FtextBox>a>p{
+    font-size:15px;
+    font-weight: 500;
+}
+.FtextBox>a>h2{
+    font-size:18px;
+}
+.FtextBox>a>h2>span{
+    color:red;
+}
+.footMid{
+    width:100%;
+    height:450px;
+    background-color:black;
+    
+}
+.footNav{
+    float:left;
+    margin-left:100px;
+    line-height: 1.8;
+}
+.footNav>li{
+    float:left;
+    margin-right:150px;
+    margin-top:20px;
+}
+.footNav>li>a{
+    font-size:15px;
+    color:#f4f4f4;
+    font-weight: bold;
+    white-space:nowrap;
+}
+.footsub{
+    margin-top:20px;
+}
+.footsub>li>a{
+    font-size:13px;
+    color:#d5d5d5;
+}
+.footBottom{
+    padding-left:50px;
+    /* width:100%; */
+    height:140px;
+    background-color:black;
+    border-top:2px solid #393939;
+    position:relative;
+}
+.footBottom>p{
+    padding-top:20px;
+}
+.footBottom>*{
+    font-size:13px;
+    color:#6c6c6c;
+    line-height: 2.2;
+}
+.footBottom strong{
+    color:#e8e8e8;
+    font-weight: 500;
+}
+.footBottom>small{
+    font-size:14px;
+}
+.footlogo{
+    position:absolute;
+    right:120px;
+    top:50%;
+    transform: translateY(-50%);
+}
+.footlogo>span{
+    margin-left:20px;
+}
+/* pc에서 숨길 리스트 */
+.logo span,
+.online2,
+#Mnav{
+    display:none;
+}
+
+/* ipad 1024*/
+@media screen and (max-width:1024px){
+    /* 숨겨질것들 */
+    
+    .gnb>ul>li:nth-child(2),
+    .gnb>ul>li:last-child,
+    #nav>li:first-child>a,
+    #nav>li:nth-child(2)>a,
+    #nav>li:nth-child(3)>a,
+    #nav>li:nth-child(4)>a,
+    #nav>li:nth-child(5)>a,
+    .footMid,
+    .footlogo>span{
+        display:none;
+    }
+    /* 보여질것들 */
+    .logo span,
+    .online2{
+        display:block;
+    }
+    .center{
+        width:100%;
+    }
+
+    .gnb{
+        margin-right:10px;
+    }
+    .gnb>ul>li:first-child>a>input{
+        margin-top: 5px;
+        height:14px;
+        width:100px;
+    }
+    .headBottom{
+        height:90px;
+    }
+    .headTop h2,
+    .logo{
+        margin-left:20px;
+    }
+    .logo>a>img{
+        width:80%;
+    }
+    .logo>a>span{
+        background-size:70%;
+        transform:translateY(-20%);
+        left:65px;
+    }
+    .logo>a>.active{
+        background-size:65%;
+        transform:translateY(-20%);
+        left:65px;
+    }
+    .sbag{
+        margin-right:150px;
+    }
+    .sbag img{
+        width:20px;
+    }
+    #Mnav{
+        display:block;
+        left:-100%;
+    }
+    /* 모바일 로그인폼 */
+    .bgcenter{
+        width:90%;
+        height:600px;
+    }
+    .Btext{
+        padding:40px 0 40px 10px;
+    }
+    .id{
+        margin-bottom:15px;
+    }
+    .id>input,
+    .password>input{
+        text-indent: 15px;
+    }
+    .password{
+        margin-bottom:20px;
+    }
+    .idSave{
+        margin:0 0 20px 0;
+    }
+    .idSave input[id="idsave"]{
+        width:17px;
+        height:17px;
+    }
+    .login{
+        margin-bottom:20px;
+    }
+    .sns{
+        width:60%;
+    }
+    .snsflex>ul>li{
+        width:23%;
+    }
+    .account{
+        margin-top:20px;
+        padding:18px 0 18px 0;
+        border-top:1px solid #ddd;
+        border-bottom:1px solid #ddd;
+        text-align: center;
+        color:#ddd;
+        font-size:11px;
+    }
+    .account>ul>li{
+        margin:0 13px 0 13px;
+    }
+    .account>ul>li::after{
+        display:block;
+        position:absolute;
+        content:"";
+        width:1px;
+        height:30px;
+        background-color:#ddd;
+        left:118%;
+        top:50%;
+        transform: translateY(-50%);
+    }
+    .account>ul>li:last-child::after{
+        display:none;
+    }
+    .nonmember{
+        margin:20px 0 20px 0;
+        width:100%;
+        height:60px;
+        text-align: center;
+        line-height: 60px;
+        background: #fff;
+        border:1px solid #000;
+        box-sizing: border-box;
+    }
+
+    /* 모바일 풋터 */
+
+    .footTop{
+        height:120px;
+    }
+    .footTop>.FtextBox{
+        height:60px;
+        left:20px;
+        line-height: 30px;
+        top:50%;
+        transform: translateY(-50%);
+        letter-spacing: 1px;
+    }
+    .FtextBox>a>p{
+        font-size:10px;
+    }
+    .FtextBox>a>h2{
+        font-size:11px;
+    }
+    
+    .footBottom{
+        height:113px;
+        padding-left:20px;
+    }
+    .footBottom>*{
+        font-size:8px;
+    }
+    .footBottom>small{
+        font-size:8px;
+    }
+    .footlogo{
+        display:none;
+    }
+    .conleft{
+     
+        margin:0
+    }
+    .headTop>.center>h2{
+        font-size:5px;
+    }
+    .gnb>ul>li{
+        float:left;
+        display:block;
+        line-height: 40px;
+        margin:8px 0 0 40px;
+        font-size:14px;
+    }
+    .gnb>ul>li>a{
+        font-size:9px;
+        letter-spacing:0.1em
+    }
+    .gnb>ul>li:first-child>a>span{
+        width:10px;
+        height:10px;
+        background-image: url(../images/icon-search.png);
+        background-size: 100%;
+        position: absolute;
+        top:50%;
+        transform: translateY(-50%);
+        left:-18px
+    }
+    .gnb>ul>li:nth-child(2)>a>span{
+        width:12px;
+        height:12px;
+        background-image: url(../images/flag-k.png);
+        background-size: 100%;
+        position: absolute;
+        top:50%;
+        transform: translateY(-50%);
+        left:-30px;
+    }
+    .gnb>ul>li:nth-child(3)>a>span{
+        width:10px;
+        height:10px;
+        background-image: url(../images/icon-user.png);
+        background-size: 100%;
+        position: absolute;
+        top:50%;
+        transform: translateY(-50%);
+        left:-20px;
+    }
+    .gnb a{
+        display:block;
+        padding-right:0px;
+        color:white;
+    }

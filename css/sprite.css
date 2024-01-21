@@ -1,0 +1,24 @@
+/************* use sprite *****************/
+.smallIcons li, .smallIcons .ddTitleText{
+	/* .smallIcons .ddTitle .ddTitleText  - this will be used when option is selected */
+	background-repeat:no-repeat;
+	background-position: 15px center;
+	padding-left:27px !important;	
+}
+.smallIcons .korean {
+	background-image:url(../images/flag-k.gif);
+	
+}
+.smallIcons .english {
+	background-image:url(../images/flag-u.gif);
+}
+.smallIcons .china {
+	background-image:url(../images/flag-c.gif);
+}
+.smallIcons .japan {
+	background-image:url(../images/flag-j.gif);
+}
+.smallIcons .spanish {
+	background-image:url(../images/flag-s.gif);
+}
+/*******************************/

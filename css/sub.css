@@ -468,6 +468,7 @@ header{
     position:relative;
 }
 .footBottom>p{
+        width:95%;
     padding-top:20px;
 }
 .footBottom>*{
@@ -563,7 +564,7 @@ header{
     /* 모바일 로그인폼 */
     .bgcenter{
         width:90%;
-        height:600px;
+        height:700px;
     }
     .Btext{
         padding:40px 0 40px 10px;
@@ -717,3 +718,4 @@ header{
         padding-right:0px;
         color:white;
     }
+}

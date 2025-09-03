@@ -521,69 +521,70 @@ header{
 }
 
 
-.akademie{
-    
-    /* height:900px; */
-    /* background:greenyellow; */
-    position:relative;
-}
-
-
-/* .akaBanner{
-    position:absolute;
-    width:1100px;
-    height:760px;
-    background-color:hotpink;
-    top:200px;
-} */
-.akademie>h2{
-    color:black;
-    font-size:32px;
-}
-.akademie>a>p{
-    color:#ff0000;
-    font-size:22px;
-    position: absolute;
-   right:0;
-   top:0;
-}
-.akaBannerWrap{
-    /* background:green; */
-    padding-top:90px;
-    text-align: center;
+.akademie {
     position: relative;
-    /* width:100%; */
-    overflow: hidden;
-}
-.akaBanner{
-    width:400%;
-    
-}
-.akaBanner>li{
-   float:left;
-   width:25%;
-   
-}
-.akaBanner>li>a{
-    width:100%;
-    
-}
-.akaBanner>li>a>img{
-    width: 100%;
-    max-width:900px;
-    
+    margin-top: 30px;
 }
 
-.BtnLR>li{
+.akademie h2 {
+    font-size: 32px;
+    padding:90px 0;
+}
+
+.akademie>a>p {
+    display: none;
+    color: #ff0000;
+    font-size: 22px;
     position: absolute;
-    top:50%;
-    transform:translateY(-50%);
+    right: 0;
+    top: 0;
 }
-.BtnLR>.btnL{
-       left:0;
+
+.akaBannerWrap {
+    position: relative;
+    overflow: hidden;
+    width: 80%;
+    margin:0 auto;
 }
-.BtnLR>.btnR{
-    right:0;
+
+.akaBanner {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+}
+
+.akaBanner li {
+    flex: 0 0 100%;
+    list-style: none;
+}
+
+.akaBanner li img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover; /* 비율 유지하면서 꽉 채움 */
+}
+
+.btnL, .btnR {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 18px;
+    z-index: 10;
+}
+
+.btnL { left: 10px; }
+.btnR { right: 10px; }
+
+@media screen and (max-width:1024px) {
+    .akademie h2 { font-size: 18px; }
+    .akademie>a>p { font-size: 16px; }
+    .btnL, .btnR { padding: 6px 10px; font-size: 14px; }
 }
 .exhibition{
     margin-bottom:30px;
@@ -671,6 +672,7 @@ header{
     position:relative;
 }
 .footBottom>p{
+    width:95%;
     padding-top:20px;
 }
 .footBottom>*{
@@ -801,7 +803,7 @@ header{
     }
     .product{
         height:55vw;
-        padding-bottom:60px;
+        /* padding-bottom:60px; */
     }
     .textBox{
         font-size:10px;
@@ -853,7 +855,7 @@ header{
     }
     
     .akaBannerWrap{
-        padding-top:40px;
+        /* padding-top:40px; */
     }
     .akademie>a>p{
         font-size:18px;
@@ -867,6 +869,9 @@ header{
     }
     .BtnLR img{
         width:50%;
+    }
+    .akademie>h2{
+        padding:40px 0 40px;
     }
     .exhibition>h2{
         padding:40px 0 40px;

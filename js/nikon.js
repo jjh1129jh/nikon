@@ -1,113 +1,104 @@
-$(function(){
-    // 보여지는 배너를 체크할 변수만들기
+$(function () {
+    // 공통 변수
+    var showBanner = 0;
     var currentSlide = 0;
-    var slides = $(".akaBanner li");
-    var totalSlides = slides.length;
+    var akaTimer;
     var slideInterval = 4000;
-    var timer;
-    // 첫번째 배너를 복사하여 배너의 마지막에 붙이기
-    // 첫 배너 복제 (무한 루프용)
-    var obj = $(".mainbanner>.mb1").clone();
-    $(".mainbanner").append(obj);
 
-    function moveBanner(){
-        $(".mainbanner").stop(true,true).animate({
+    // ===== 메인 배너 =====
+    var $mainBanner = $(".mainbanner");
+    var $slides = $mainBanner.children("li");
+    var totalMainSlides = $slides.length;
+
+    // 첫 번째 배너 복제 → 마지막에 추가 (무한 루프용)
+    var firstClone = $slides.first().clone();
+    $mainBanner.append(firstClone);
+    var totalWithClone = $mainBanner.children("li").length;
+
+    function moveBanner() {
+        $mainBanner.stop(true, true).animate({
             marginLeft: -showBanner * 100 + "%"
         }, 1000);
 
-        // 버튼 색상 동기화
-        if(showBanner == 5){
-            $(".mBtn>li").eq(0).addClass("active").siblings().removeClass("active");
-        } else{
-            $(".mBtn>li").eq(showBanner).addClass("active").siblings().removeClass("active");
-        }
+        // 버튼 active 처리
+        var index = (showBanner === totalMainSlides) ? 0 : showBanner;
+        $(".mBtn>li").eq(index).addClass("active").siblings().removeClass("active");
     }
-    //버튼을 클릭하면 배너가 해당하는 위치로 이동하고, 버튼에 active클래스 추가하기
-    $(".mBtn>li").click(function(){
+
+    $(".mBtn>li").click(function () {
         showBanner = $(this).index();
         moveBanner();
-
-        // 클릭하면 타이머 초기화
         startTimer();
     });
 
     $(".rightBtn").click(function () {
-        if (showBanner == 4) {
-            showBanner = -1;
-            $(".mainbanner").css("margin-left", 0);
+        if (showBanner >= totalMainSlides) {
+            showBanner = 0;
+            $mainBanner.css("margin-left", 0);
         }
         showBanner++;
         moveBanner();
     });
 
     $(".leftBtn").click(function () {
-        if (showBanner == 0) {
-            showBanner = 5;
-            $(".mainbanner").css("margin-left", -100 * showBanner + "%");
+        if (showBanner <= 0) {
+            showBanner = totalMainSlides;
+            $mainBanner.css("margin-left", -100 * showBanner + "%");
         }
         showBanner--;
         moveBanner();
     });
 
-    //메인배너를 자동으로 넘길 함수
-    function autoBanner(){
+    function autoBanner() {
         showBanner++;
-        if(showBanner > 4) showBanner = 0; // 마지막 배너이면 처음으로
+        if (showBanner > totalMainSlides) {
+            showBanner = 1;
+            $mainBanner.css("margin-left", 0);
+        }
         moveBanner();
     }
-    function startTimer(){
+
+    var timer;
+    function startTimer() {
         clearInterval(timer);
-        timer = setInterval(autoBanner, 4000);
+        timer = setInterval(autoBanner, slideInterval);
     }
 
     startTimer();
 
     $("#main").hover(
-        function(){ clearInterval(timer); },
-        function(){ startTimer(); }
+        function () { clearInterval(timer); },
+        function () { startTimer(); }
     );
-    //cright2 배너 체크할 변수
+
+    // ===== 오른쪽 cright2 배너 =====
     var CrightBanner = 0;
-
-    function CautoBanner(){
-        if(CrightBanner<1){
-            CrightBanner++;
-        }else{
-            CrightBanner=0;
-        }
-        $(".cright2>ul>li").eq(CrightBanner).fadeIn(1000).siblings().fadeOut(1000)
+    function CautoBanner() {
+        CrightBanner = (CrightBanner + 1) % $(".cright2>ul>li").length;
+        $(".cright2>ul>li").eq(CrightBanner).fadeIn(1000).siblings().fadeOut(1000);
     }
-    setInterval(CautoBanner,7000);
+    setInterval(CautoBanner, 7000);
 
-    //프로덕트 왼쪽 배너 체크할 변수
+    // ===== 프로덕트 왼쪽 배너 =====
     var LShowBanner = 0;
-
-    function LautoBanner(){
-        console.log(LShowBanner);
-        if (LShowBanner < 2) {
-            LShowBanner++;
-        } else{
-            LShowBanner = 0;
-        }
-        $(".leftProduct>ul>li").eq(LShowBanner).fadeIn(1000).siblings().fadeOut(1000)
+    function LautoBanner() {
+        LShowBanner = (LShowBanner + 1) % $(".leftProduct>ul>li").length;
+        $(".leftProduct>ul>li").eq(LShowBanner).fadeIn(1000).siblings().fadeOut(1000);
     }
-    setInterval(LautoBanner,5000);
+    setInterval(LautoBanner, 5000);
 
-    //프로덕트 오른쪽 배너 체크할 변수
+    // ===== 프로덕트 오른쪽 배너 =====
     var RShowBanner = 0;
-
-    function RautoBanner(){
-        console.log(RShowBanner);
-        if (RShowBanner < 2) {
-            RShowBanner++;
-        } else{
-            RShowBanner = 0;
-        }
-        $(".rightProduct>ul>li").eq(RShowBanner).fadeIn(1000).siblings().fadeOut(1000)
+    function RautoBanner() {
+        RShowBanner = (RShowBanner + 1) % $(".rightProduct>ul>li").length;
+        $(".rightProduct>ul>li").eq(RShowBanner).fadeIn(1000).siblings().fadeOut(1000);
     }
-    setInterval(RautoBanner,5000);
+    setInterval(RautoBanner, 5000);
 
-    //아카데미 배너 체크할 변수
+    // ===== 아카데미 배너 =====
+    var $akaSlides = $(".akaBanner li");
+    var totalSlides = $akaSlides.length;
+
     function goToSlide(index) {
         currentSlide = index;
         $(".akaBanner").css("transform", "translateX(-" + (100 * currentSlide) + "%)");
@@ -122,96 +113,67 @@ $(function(){
         currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
         goToSlide(currentSlide);
     }
+
     function startAkaTimer() {
-    akaTimer = setInterval(nextSlide, slideInterval);
-    }
-    
-    function resetAkaTimer() {
         clearInterval(akaTimer);
-        startAkaTimer();
+        akaTimer = setInterval(nextSlide, slideInterval);
     }
-    $(".btnR").click(function() {
+
+    $(".btnR").click(function () {
         nextSlide();
-        resetAkaTimer();
+        startAkaTimer();
     });
-    $(".btnL").click(function() {
+
+    $(".btnL").click(function () {
         prevSlide();
-        resetAkaTimer();
+        startAkaTimer();
     });
 
-    
-    // 초기화
     startAkaTimer();
-    // var akatimer = setInterval(autoAkaBanner,4000)
 
-    // $(".akaBannerWrap").mouseenter(function(){
-    //     clearInterval(akatimer);
-    // })
-    // $(".akaBannerWrap").mouseleave(function(){
-    //     akatimer = setInterval(autoAkaBanner,4000)
-    // })
-
-    //모바일 메뉴
-    $("#Mnav>li").click(function(){
-        //li 클릭시 toggleClass 적용
-
+    // ===== 모바일 메뉴 =====
+    $("#Mnav>li").click(function () {
         $(this).children(".Msub").slideToggle(300);
         $(this).siblings().children(".Msub").slideUp(300);
-    })
-
-    //모바일 메뉴 호버
-    $(".logo> span").click(function(){
-        if($(this).hasClass("active")){
-            $("#Mnav").stop().animate({
-                left:"-100%"
-            })
-        }
-        else{
-            $("#Mnav").stop().animate({
-                left:0
-            })
-            // $("#Mnav").css("left",0);
-        }
-    $(this).toggleClass("active")
-    })
-
-    $(".logo> span").hasClass("active")
-    
-    //서치메뉴
-    $(".search>a").click(function(){
-        if($(this).hasClass("searhover")){
-            $(".searchpopup").css({
-                opacity:0
-            })
-        }
-        else{
-            $(".searchpopup").css("opacity",1)
-        }
-    $(this).toggleClass("searhover")
-    })
-
-    // 언어 드롭다운 메뉴
-    $(document).ready(function(e) {	         
-        $("#sample").msDropdown(); 
-    
-    //no use
-        try {
-            var pages = $("#pages").msDropdown({on:{change:function(data, ui) {
-                                                    var val = data.value;
-                                                    if(val!="")
-                                                        window.location = val;
-                                                }}}).data("dd");
-    
-            var pagename = document.location.pathname.toString();
-            pagename = pagename.split("/");
-            pages.setIndexByValue(pagename[pagename.length-1]);
-            $("#ver").html(msBeautify.version.msDropdown);
-        } catch(e) {
-            //console.log(e);	
-        }
-        
-        $("#ver").html(msBeautify.version.msDropdown);	
-        
     });
-})
 
+    $(".logo> span").click(function () {
+        if ($(this).hasClass("active")) {
+            $("#Mnav").stop().animate({ left: "-100%" });
+        } else {
+            $("#Mnav").stop().animate({ left: 0 });
+        }
+        $(this).toggleClass("active");
+    });
+
+    // ===== 검색 메뉴 =====
+    $(".search>a").click(function (e) {
+        e.preventDefault();
+        if ($(this).hasClass("searhover")) {
+            $(".searchpopup").fadeOut(200);
+        } else {
+            $(".searchpopup").fadeIn(200);
+        }
+        $(this).toggleClass("searhover");
+    });
+
+    // ===== 언어 드롭다운 메뉴 =====
+    try {
+        $("#sample").msDropdown();
+
+        var pages = $("#pages").msDropdown({
+            on: {
+                change: function (data, ui) {
+                    var val = data.value;
+                    if (val !== "") window.location = val;
+                }
+            }
+        }).data("dd");
+
+        var pagename = document.location.pathname.toString().split("/");
+        pages.setIndexByValue(pagename[pagename.length - 1]);
+        $("#ver").html(msBeautify.version.msDropdown);
+    } catch (e) {
+        console.log(e);
+    }
+});
